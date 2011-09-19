@@ -54,6 +54,6 @@ lf
 
 #### Example of use ####
 
-lf <-  parseExchangeFormatLFs(wd =  "D:/bearedo/Database/DATRAS/NS-IBTS")
+#lf <-  parseExchangeFormatLFs(wd =  "D:/bearedo/Database/DATRAS/NS-IBTS")
 
 
