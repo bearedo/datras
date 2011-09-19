@@ -26,6 +26,19 @@ alk <- data.frame(matrix(unlist(strsplit(out,",")),byrow=T,ncol=23))
 dimnames(alk)[[2]] <-c("recordtype","quarter","country","ship","gear","sweeplngt","gearexp","doortype","stno","haulno",
 "year","speccodetype","speccode","areatype","areacode","lngtcode","lngtclass","sex","maturity","plusgr","age","noatalk","indwgt")
 
+alk$quarter <- as.numeric(as.character(alk$quarter))
+alk$sweeplngt <- as.numeric(as.character(alk$sweeplngt)) 
+alk$haulno <- as.numeric(as.character(alk$haulno)) 
+ alk$stno <- as.numeric(as.character(alk$stno)) 
+ alk$year <- as.numeric(as.character(alk$year))
+ alk$speccode <-as.numeric(as.character(alk$speccode)) 
+ alk$areatype <- as.numeric(as.character(alk$areatype)) 
+ alk$lngtclass <- as.numeric(as.character(alk$lngtclass)) 
+ alk$noatalk <- as.numeric(as.character(alk$noatalk))  
+ alk$indwgt  <- as.numeric(as.character(alk$indwgt))
+ 
+print(str(alk))
+
 alk 
 
 }
