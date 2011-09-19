@@ -1,0 +1,40 @@
+
+#### Data to extract length frequencies from ICES Exchange format  #####
+
+
+parseExchangeFormatLFs <- function (wd =  "D:/bearedo/Database/DATRAS/NS-IBTS")  {
+
+setwd(wd)
+
+fnames<-list.files()
+fnames<-fnames[grep("Exchange Data_",fnames)]
+fnames<-fnames[grep(".csv",fnames)]
+
+
+out<-NULL
+for(i in 1:length(fnames)){
+#i<-1
+cnts<-count.fields(fnames[i],sep=",")
+lf<-readLines(fnames[i])
+lf<-cbind(lf,cnts)
+lf<-lf[lf[,2]=="24",][,-2]
+print(length(lf))
+out<-c(out,lf[-1])
+}
+
+lf <- data.frame(matrix(unlist(strsplit(out,",")),byrow=T,ncol=24))
+
+ dimnames(lf)[[2]] <- c("recordtype","quarter","country","ship","gear","sweeplngt","gearexp","doortype",
+"stno","haulno","year","speccodetype","speccode","specval","sex","totalno","catidentifier","nomeas","subfactor","subwgt","ascatcatchwgt",
+"lngtcode","lngtclass","hlnoatlngt")
+
+lf
+
+}
+
+
+###
+
+lf <-  parseExchangeFormatLFs(wd =  "D:/bearedo/Database/DATRAS/NS-IBTS")
+
+
