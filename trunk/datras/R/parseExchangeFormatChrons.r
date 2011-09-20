@@ -40,11 +40,75 @@ mm <- gsub(" ","0",mm)
 ttime<-paste(paste(hh,mm,sep=":"),":","00",sep="")
 chrons$date<-as.POSIXct(paste(tdate,ttime),tz="GMT")
 
+
+chrons$quarter <- as.numeric(as.character(chrons$quarter))
+chrons$sweeplngt <- as.numeric(as.character(chrons$sweeplngt))
+chrons$haulno <- as.numeric(as.character(chrons$haulno))
+chrons$stno <- as.numeric(as.character(chrons$stno))
+chrons$year <- as.numeric(as.character(chrons$year))
+chrons$month <- as.numeric(as.character(chrons$month))
+chrons$day <- as.numeric(as.character(chrons$day))
+chrons$timeshot <- as.numeric(as.character(chrons$timeshot))
+chrons$stratum <- as.numeric(as.character(chrons$stratum))
+chrons$hauldur <- as.numeric(as.character(chrons$hauldur))
+chrons$shootlat <- as.numeric(as.character(chrons$shootlat))
+chrons$shootlong <- as.numeric(as.character(chrons$shootlong))
+chrons$haullat <- as.numeric(as.character(chrons$haullat))
+chrons$haullong <- as.numeric(as.character(chrons$haullong))
+chrons$depth <- as.numeric(as.character(chrons$depth))
+chrons$statrec <- as.character(chrons$statrec)
+chrons$netopening <- as.numeric(as.character(chrons$netopening))
+chrons$tickler <- as.numeric(as.character(chrons$tickler))
+chrons$distance <- as.numeric(as.character(chrons$distance))
+chrons$warplngt <- as.numeric(as.character(chrons$warplngt))
+chrons$warpdia <- as.numeric(as.character(chrons$warpdia))
+chrons$warpden <- as.numeric(as.character(chrons$warpden))
+chrons$doorsurface <- as.numeric(as.character(chrons$doorsurface))
+chrons$doorwgt <- as.numeric(as.character(chrons$doorwgt))
+chrons$doorspread <- as.numeric(as.character(chrons$doorspread))
+chrons$wingspread <- as.numeric(as.character(chrons$wingspread))
+chrons$buoyancy <- as.numeric(as.character(chrons$buoyancy))
+chrons$kitedim <- as.numeric(as.character(chrons$kitedim))
+chrons$wgtgroundrope <- as.numeric(as.character(chrons$wgtgroundrope))
+chrons$towdir <- as.numeric(as.character(chrons$towdir))
+chrons$groundspeed <- as.numeric(as.character(chrons$groundspeed))
+chrons$speedwater <- as.numeric(as.character(chrons$speedwater))
+chrons$surcurdir <- as.numeric(as.character(chrons$surcurdir))
+chrons$surcurspeed <- as.numeric(as.character(chrons$surcurspeed))
+chrons$botcurdir <- as.numeric(as.character(chrons$botcurdir))
+chrons$botcurdir <- as.numeric(as.character(chrons$botcurdir))
+chrons$botcurspeed <- as.numeric(as.character(chrons$botcurspeed))
+chrons$winddir <- as.numeric(as.character(chrons$winddir))
+chrons$windspeed <- as.numeric(as.character(chrons$windspeed))
+chrons$swelldir <- as.numeric(as.character(chrons$swelldir))
+chrons$swellheight <- as.numeric(as.character(chrons$swellheight))
+chrons$surtemp <- as.numeric(as.character(chrons$surtemp))
+chrons$bottemp <- as.numeric(as.character(chrons$bottemp))
+chrons$sursal <- as.numeric(as.character(chrons$sursal))
+chrons$botsal <- as.numeric(as.character(chrons$botsal))
+chrons$thermocline <- as.numeric(as.character(chrons$thermocline))
+chrons$thclinedepth <- as.numeric(as.character(chrons$thclinedepth))
+chrons$speedwater <- as.numeric(as.character(chrons$speedwater))
+chrons$year <- as.numeric(as.character(chrons$year))
+
+## Replace -9s with NAs
+
+for ( i in c(29:59) )
+{ chrons[,i] <- ifelse(chrons[,i]== -9, NA, chrons[,i]) }
+
+print(str(chrons))
+
+
 chrons
 
 }
 
 
+
+
+
+
+
 ### Example ######
 
-##chrons <-  parseExchangeFormatChrons(wd =  "D:/bearedo/Database/DATRAS/NS-IBTS")
+#chrons <-  parseExchangeFormatChrons(wd =  "D:/bearedo/Database/DATRAS/NS-IBTS")
