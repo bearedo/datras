@@ -1,7 +1,7 @@
 
 ### Code to produce tow tracks in spatial lines data.frame format
 
-ChronsTrackToSpatialLineDF <- function(input=chrons,what.ship=c('SCO3','DAN2')) {
+ChronsTrack2SpatialLineDF <- function(input=chrons,what.ship=c('SCO3','DAN2')) {
 
 ## The data must be organised so that the haul position follows the shoot position in a single column
 
@@ -20,16 +20,20 @@ lng <- length(input1[,1])
 ninput$id <- as.character(rep(1:lng,rep(2,lng)))
 spl <- as.list(1:length(input[,1]))
 for(i in 1:length(input[,1])){
-print(i)
-spl[i] <- ChronsTrackToSpatialLine(input=ninput,which.tow=i)
- }
 
+spl[i] <- ChronsTrack2SpatialLine(input=ninput,which.tow=i)
+
+ }
+print("Spatial Line List created")
 
 spl1 <- SpatialLines(spl)
-details<- data.frame(id = as.character(1:length(input[,1])),gear=input$gear,country=input$country,ship=input$ship)
+details<- data.frame(id = as.character(1:length(input[,1])),ear=chrons$year,month=chrons$month,day=chrons$day,ship=chrons$ship,timeshot=chrons$timeshot,
+gear=chrons$gear,haulduration=chrons$hauldur)
 sp.df<-SpatialLinesDataFrame(sl=spl1,data=details)
 
 proj4string(sp.df) <- CRSargs(CRS("+init=epsg:4326"))
+
+print("Spatial Line Data Frame created")
 
 sp.df
 

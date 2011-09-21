@@ -43,7 +43,7 @@ ttime<-paste(paste(hh,mm,sep=":"),":","00",sep="")
 chrons$quarter <- as.numeric(as.character(chrons$quarter))
 chrons$sweeplngt <- as.numeric(as.character(chrons$sweeplngt))
 chrons$haulno <- as.numeric(as.character(chrons$haulno))
-chrons$stno <- as.numeric(as.character(chrons$stno))
+chrons$stno <- as.character(chrons$stno)
 chrons$year <- as.numeric(as.character(chrons$year))
 chrons$month <- as.numeric(as.character(chrons$month))
 chrons$day <- as.numeric(as.character(chrons$day))
@@ -95,7 +95,7 @@ chrons$datim.haul<-chrons$datim.shot + chrons$hauldur *60   #Default is seconds
 
 ## Replace -9s with NAs
 
-for ( i in c(8,9,10,11,12,13,14,18,19,20,21,28:59) )
+for ( i in c(8,9,10,11,12,13,14,18,19,20,21,23,28:59) )
 { chrons[,i] <- ifelse(chrons[,i]== -9, NA, chrons[,i]) }
 
 print(str(chrons))
