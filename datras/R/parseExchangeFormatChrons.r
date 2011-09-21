@@ -38,7 +38,6 @@ mm<-  substr(format(chrons$timeshot),3,4)
 mm[grep("  ",mm)] <- "00"
 mm <- gsub(" ","0",mm)
 ttime<-paste(paste(hh,mm,sep=":"),":","00",sep="")
-chrons$date<-as.POSIXct(paste(tdate,ttime),tz="GMT")
 
 
 chrons$quarter <- as.numeric(as.character(chrons$quarter))
@@ -91,9 +90,12 @@ chrons$thclinedepth <- as.numeric(as.character(chrons$thclinedepth))
 chrons$speedwater <- as.numeric(as.character(chrons$speedwater))
 chrons$year <- as.numeric(as.character(chrons$year))
 
+chrons$datim.shot<-as.POSIXct(paste(tdate,ttime),tz="GMT")
+chrons$datim.haul<-chrons$datim.shot + chrons$hauldur *60   #Default is seconds
+
 ## Replace -9s with NAs
 
-for ( i in c(29:59) )
+for ( i in c(8,9,10,11,12,13,14,18,19,20,21,28:59) )
 { chrons[,i] <- ifelse(chrons[,i]== -9, NA, chrons[,i]) }
 
 print(str(chrons))
