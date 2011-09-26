@@ -34,6 +34,10 @@ TrawlSurveyGridPlot <- function( dF
 require(sp)
 require(maptools)
 
+#dF <- fish.yq; we=-16; ea=-15 ; so=56;no=58;nameLon = "shootlong"; nameLat = "shootlat";plotMap=T;
+#nameVarToSum="hlnoatlngt";cellsizeX = grid.size.x; cellsizeY = grid.size.y;
+#legendx='bottomright';numcats=5;plotPoints=T;legendncol=2;paletteCats = "heat.colors";addICESgrid=TRUE;legendtitle="numbers"
+#
 lstargs <- list(...)
 
 #only create grids when num records >0 (otherwise generates error)
@@ -42,7 +46,7 @@ if ( nrow(dF) > 0 )
    
     #if bounds are not specified then set them from the data
     #rounds bounds to nearest whole cell unit
-    if ( we == "" ) {we = min( dF[[nameLon]], na.rm=TRUE ); we = we - we%%cellsizeX}
+    if ( we == "" ) {we = min( dF[[nameLon]], na.rm=TRUE ); we = we - we%%cellsizeX  }
     if ( ea == "" ) {ea = max( dF[[nameLon]], na.rm=TRUE ); ea = ea - ea%%cellsizeX + cellsizeX}
     if ( so == "" ) {so = min( dF[[nameLat]], na.rm=TRUE ); so = so - so%%cellsizeY}
     if ( no == "" ) {no = max( dF[[nameLat]], na.rm=TRUE ); no = no - no%%cellsizeY + cellsizeY}
@@ -79,7 +83,7 @@ if ( nrow(dF) > 0 )
        {
         #sum timeInterval for each gridCellIndex
         perCell <- tapply(sPDF[[nameVarToSum]], gridCellIndexPerVMSpoint, sum)
-        #print('1')
+        print('1')
        } 
        else
        {
@@ -87,7 +91,7 @@ if ( nrow(dF) > 0 )
         #probably a better way than doing this!
         sPDF$ones <- 1 #this just creates a vector of all 1s
         perCell <- tapply(sPDF$ones, gridCellIndexPerVMSpoint, sum)
-        #print('2')
+        print('2')
        }
    
     #then need to get those aggregated data values back onto the original grid
