@@ -32,10 +32,13 @@ alk$haulno <- as.numeric(as.character(alk$haulno))
  alk$stno <- as.numeric(as.character(alk$stno)) 
  alk$year <- as.numeric(as.character(alk$year))
  alk$speccode <-as.numeric(as.character(alk$speccode)) 
- alk$areatype <- as.numeric(as.character(alk$areatype)) 
+ alk$areatype <- as.character(alk$areatype) 
+ alk$areacode <- as.character(alk$areacode)
  alk$lngtclass <- as.numeric(as.character(alk$lngtclass)) 
  alk$noatalk <- as.numeric(as.character(alk$noatalk))  
  alk$indwgt  <- as.numeric(as.character(alk$indwgt))
+ alk$age  <- as.numeric(as.character(alk$age))
+ 
  
 print(str(alk))
 
