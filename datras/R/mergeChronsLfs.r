@@ -30,6 +30,8 @@ merged.lfs$scientific.name <- short.length.frequencies$scientific.name[1]
 merged.lfs$hlnoatlngt <- ifelse(is.na(merged.lfs$hlnoatlngt),0,merged.lfs$hlnoatlngt)
 merged.lfs$hlwtatlngt <- ifelse(is.na(merged.lfs$hlwtatlngt),0,merged.lfs$hlwtatlngt)
 
+merged.lfs$statrec <- as.character(merged.lfs$statrec)
+
 #Note: In some cases there are missing haul longs and lats.
 
 merged.lfs
