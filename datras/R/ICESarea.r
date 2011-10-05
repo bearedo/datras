@@ -245,8 +245,8 @@
                 
     ICES.area[point.in.polygon(point.x=chrons$shootlong, point.y=chrons$shootlat, pol.x=c(18,18,22,22),pol.y=c(56.5,53.5,53.5,56.5))>0]<-"26"
     
-    ICES.area[point.in.polygon(point.x=chrons$shootlong, point.y=chrons$shootlat, pol.x=c(18,18,18.32,18.32,19,19,16), pol.y=c(56.5,57,57,
-                57.5,57.925,59.762,59.762))>0]<-"27"
+    ICES.area[point.in.polygon(point.x=chrons$shootlong, point.y=chrons$shootlat, pol.x=c(18,18,18.32,18.32,19,19,16,16), pol.y=c(56.5,57,57,
+                57.5,57.925,59.762,59.762,56.5))>0]<-"27"
                 
     ICES.area[point.in.polygon(point.x=chrons$shootlong, point.y=chrons$shootlat, pol.x=c(19,19,18.45,18.3,18,18,21.5,21.72,21.98,22.17,
                 22.24,21.93), pol.y=c(58.5,57.9,57.58,57,57,56.65,56.5,57.57,57.97,58.04,58.15,58.5))>0]<-"28-1"
