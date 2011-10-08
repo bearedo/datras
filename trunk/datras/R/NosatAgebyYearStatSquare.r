@@ -12,7 +12,7 @@
  #what.species ='Pleuronectes platessa'
  #what.species = 'Melanogrammus aeglefinus'
  
- #plus.group <- 10
+ plus.group <- 10
  
   nalk <- alk[alk$scientific.name==what.species,]
   nalk$age <- ifelse(!is.na(nalk$age) & nalk$age >= 10, plus.group, nalk$age)    # Make a plus group
@@ -20,7 +20,7 @@
   min.l <- min(nalk$lngtclass,na.rm=T)                                           # Min and max
   max.l <- max(nalk$lngtclass,na.rm=T)
   
-  lfdat <- lfdat[is.na(lfdat$lngtclass) | lfdat$lngtclass >= min.l & lfdat$lngtclass <= max.l ,]  # Remove lengths that are too big and too small
+  lfdat <- lfdat[is.na(lfdat$lngtclass) | lfdat$lngtclass > min.l & lfdat$lngtclass < max.l ,]  # Remove lengths that are too big and too small
 
   # Make the missing lngtclass zero for this process 
   
@@ -82,6 +82,7 @@
    
    out$hlnoatage[is.na(out$hlnoatage)] <-0
    out$hlwtatage[is.na(out$hlwtatage)] <-0
+   out <- out[!is.na(out$age),]
    
    out }
    
