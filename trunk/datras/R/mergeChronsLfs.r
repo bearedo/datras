@@ -18,6 +18,7 @@ statrec=chrons$statrec,
 depth=chrons$depth,
 haulval=chrons$haulval,
 distance=chrons$distance,
+hauldur=chrons$hauldur,
 datim.shoot=chrons$datim.shot,datim.haul=chrons$datim.haul)
 
 
