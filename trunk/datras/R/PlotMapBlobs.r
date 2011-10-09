@@ -2,13 +2,13 @@
 plotMapBlobs <- function(input=cpue.dat,what.quarter=3,what.year = 2010,what.cpue='cpue.by.n',xlim0=c(-5,10),ylim0=c(45,62),scaling.factor=10)
 {
 #
-#input=cpue.dat;
-#what.quarter=1;what.year = 2001;
+#input=nfish2;
+#what.quarter=3;what.year = 2007;
 #what.cpue='cpue.by.n';
 #xlim0=c(-15,10);
 #ylim0=c(45,62);
 #scaling.factor=1
-##
+###
 plot(1,1,type='n', xlim=xlim0,ylim=ylim0,xlab='',ylab='')
 title(paste(what.year," Q",what.quarter," ",input$scientific.name[1],sep=''))
 
@@ -29,7 +29,10 @@ ndatq1 <- ndatq[-ww,] # the +ve component
 else{
 ndatq1 <- ndatq }
 
-qq<-seq(min(ndatq1[,what.cpue],na.rm=T),max(ndatq1[,what.cpue],na.rm=T),length=9)
+m1 <- min(ndatq1[,what.cpue],na.rm=T)
+m2 <- max(ndatq1[,what.cpue],na.rm=T)
+if (m2 > m1) {
+qq<-seq(m1,m2,length=9)
 
 ll <- length(qq)
 
@@ -58,6 +61,9 @@ bg='white',
 
 x.intersp=1.5,xjust=0.5,col=c('black',rep('black',6)),horiz=F,cex=.6,title=what.cpue)
 
+}
+
+else{print("Insufficient data")}
 
 }
 
