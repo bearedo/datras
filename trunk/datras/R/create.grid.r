@@ -1,6 +1,6 @@
 create.grid <- function(lon.range, lat.range, lon.n, lat.n, lon.obs, lat.obs)
 {
-    # finds the northernmost and southmost points within bands of width 2*d.lonpng(file="/home/bearedo/new.map.png",height=900,width=900)
+    # finds the northernmost and southmost points within bands of width 2*d.lon 
     d.lon=1*2
     # finds the westmost and eastmost points within bands of width 2*d.lat
     d.lat=0.2*2
@@ -18,6 +18,6 @@ create.grid <- function(lon.range, lat.range, lon.n, lat.n, lon.obs, lat.obs)
         ok.lon[grid$lat==i & grid$lon>=lim[1] & grid$lon<=lim[2]]=TRUE
     }
     grid=data.frame(grid,ok.lon,ok.lat)
-    names(grid)[1:2]=c("lon.start","lat.start")
+    names(grid)[1:2]=c("shootlong","shootlat")
     list(grid=grid, lonnie=lonnie, lattie=lattie)
 }
