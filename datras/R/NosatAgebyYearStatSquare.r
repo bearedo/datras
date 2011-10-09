@@ -82,7 +82,7 @@
    
    out$hlnoatage[is.na(out$hlnoatage)] <-0
    out$hlwtatage[is.na(out$hlwtatage)] <-0
-   out <- out[!is.na(out$age),]
+   #out$age <- ifelse(is.na(out$age),'missing',out$age)
    
    out }
    
