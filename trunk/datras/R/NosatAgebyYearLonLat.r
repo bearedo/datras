@@ -7,9 +7,9 @@
  {
  
  #lfdat = merged.haddock;
- lfdat <- merged.plaice;
+ #lfdat <- merged.plaice;
  
- what.species ='Pleuronectes platessa'
+ #what.species ='Pleuronectes platessa'
  #what.species = 'Melanogrammus aeglefinus'
  
  plus.group <- 10
@@ -83,7 +83,7 @@
     
    out0 <- out[out$hlnoatage==0,]  # These are the stations where no fish at all were recorded.
    out0 <- out0[,-5]
-   age.dist <- data.frame(age=seq(min(out$age,na.rm=T):max(out$age,na.rm=T)),hlnoatage=0,hlwtatage=0 )
+   age.dist <- data.frame(age=c(min(out$age,na.rm=T):max(out$age,na.rm=T)),hlnoatage=0,hlwtatage=0 )
    out1 <- merge(out0,age.dist,all=T)
    
    
