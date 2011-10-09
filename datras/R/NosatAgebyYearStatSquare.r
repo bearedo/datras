@@ -78,11 +78,21 @@
  
   out <- merge(slfs3,haulduration,all.x=T)    # merge the data with the hauldurations. Note: relevant at this level of aggregation.
   
-   out <- orderBy(~year+age,data=out)
+   out <- orderBy(~year+age,data=out)          # order the data
    
    out$hlnoatage[is.na(out$hlnoatage)] <-0
    out$hlwtatage[is.na(out$hlwtatage)] <-0
    #out$age <- ifelse(is.na(out$age),'missing',out$age)
+   
+   out0 <- out[out$hlnoatage==0,]  # These are the stations where no fish at all were recorded.
+   out0 <- out0[,-4]
+   age.dist <- data.frame(age=c(min(out$age,na.rm=T):max(out$age,na.rm=T)),hlnoatage=0,hlwtatage=0 )
+   out1 <- merge(out0,age.dist,all=T)
+   
+   
+   out <- out[out$hlnoatage != 0,] # positive stations
+   
+   out <- rbind(out,out1)
    
    out }
    
