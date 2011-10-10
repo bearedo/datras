@@ -1,8 +1,8 @@
 Package: datras
 Type: Package
 Title: For analysing and visualising ICES datras trawl survey data
-Version: 1.0
-Date: 2011-09-19
+Version: 2.0
+Date: 2011-10-10
 Author: Doug Beare <doug.beare@gmail.com>
 Maintainer: Doug Beare <doug.beare@gmail.com>
 Description: Enables the stardardised analysis of ICES datras data.
