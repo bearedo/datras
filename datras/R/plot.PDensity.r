@@ -1,11 +1,10 @@
-#hello world
-plot.Lfs<- function(fish=merged.plaice,what.quarter="3",chrons1=chrons)
+
+plot.PDensity<- function(fish=merged.plaice,what.quarter="3",chrons1=chrons,bw=0.8)
 {
 
-fish <- merged.plaice
-what.quarter <- "3"
-chrons1 <- chrons
-
+#fish <- merged.plaice
+#what.quarter <- "3"
+#chrons1 <- chrons
 
 hd<-tapply(chrons1$hauldur,list(chrons1$year,chrons1$quarter),sum,na.rm=T)/60  # Get the haul duration
 what.quarter <- as.character(what.quarter)
@@ -16,15 +15,15 @@ fish.yr.l.h<-fish.yr.l[,,what.quarter]/matrix(rep(hd[,what.quarter],dd[2]),ncol=
 for(i in sort(unique(fdat$year)) ){   
 print(i)                                                                                    # loop over year
 input <- fish.yr.l.h[as.character(i),]
-if(length(input)>0){
-barplot(input, ylim=c(0,max(fish.yr.l.h,na.rm=T)),space=0)
-title(as.character(i))}
+input1 <- input[!is.na(input)]
+if(length(input1)>0){
+d<- density(rep(as.numeric(names(input1)),round(input1)),bw=bw)
+plot(d,type='n',main=as.character(i),xlim=c(1.3,50))
+polygon(d,col='wheat')
+
+}
 else{frame() }
 }
 }
 
 
-input1 <- input
-d<- density(rep(as.numeric(names(input1)),round(input1)))
-plot(d,type='n',main=as.character(i),xlim=c(1.3,50))
-polygon(d,col='wheat')
