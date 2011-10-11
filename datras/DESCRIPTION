@@ -1,11 +1,11 @@
 Package: datras
 Type: Package
 Title: For analysing and visualising ICES datras trawl survey data
-Version: 2.0
-Date: 2011-10-10
+Version: 3.0
+Date: 2011-10-11
 Author: Doug Beare <doug.beare@gmail.com>
 Maintainer: Doug Beare <doug.beare@gmail.com>
 Description: Enables the stardardised analysis of ICES datras data.
 License: GPL (>=2)
-Depends: R (>= 2.11.1), PBSmapping, raster, shapefiles, mda, maps,mapdata,PBSmapping,maptools, sp, doBy
+Depends: R (>= 2.11.1), rgdal,PBSmapping, raster, shapefiles, mda, maps,mapdata,PBSmapping,maptools, sp, doBy
 LazyLoad: yes
