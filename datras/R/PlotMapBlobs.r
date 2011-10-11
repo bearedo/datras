@@ -51,15 +51,15 @@ points(ndatq1$shootlong,ndatq1$shootlat,cex=(blobSize*scaling.factor),pch=21,col
 }
 
 
-legend("topright",
-legend=round(c(0,seq(min(ndatq1[,what.cpue]),max(ndatq1[,what.cpue]),length=6)),2),
-pch=c(16,rep(21,7)),
-pt.cex=seq(min(blobSize,na.rm=T),max(blobSize,na.rm=T),length=7)*scaling.factor,
-pt.bg=c('black',rep('yellow',6)),
+#legend("topright",
+#legend=round(c(0,seq(min(ndatq1[,what.cpue]),max(ndatq1[,what.cpue]),length=6)),2),
+#pch=c(16,rep(21,7)),
+#pt.cex=seq(min(blobSize,na.rm=T),max(blobSize,na.rm=T),length=7)*scaling.factor,
+#pt.bg=c('black',rep('yellow',6)),
 
-bg='white',
+#bg='white',
 
-x.intersp=1.5,xjust=0.5,col=c('black',rep('black',6)),horiz=F,cex=.6,title=what.cpue)
+#x.intersp=1.5,xjust=0.5,col=c('black',rep('black',6)),horiz=F,cex=.6,title=what.cpue)
 
 }
 
