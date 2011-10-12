@@ -19,6 +19,14 @@ depth=chrons$depth,
 haulval=chrons$haulval,
 distance=chrons$distance,
 hauldur=chrons$hauldur,
+netopening=chrons$netopening,
+wingspread=chrons$wingspread,
+speedwater=chrons$speedwater,
+groundspeed=chrons$groundspeed,
+doorspread=chrons$doorspread,
+windspeed = chrons$windspeed,
+surtemp=chrons$surtemp,
+bottemp=chrons$bottemp,
 datim.shoot=chrons$datim.shot,datim.haul=chrons$datim.haul)
 
 
