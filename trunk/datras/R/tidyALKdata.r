@@ -12,8 +12,10 @@ input$lngtclass[input$lngtcode == 0] <- input$lngtclass[input$lngtcode == 0]/10
 
 #Round down length classes & add 0.5
 
-input$lngtclass <- round(input$lngtclass)
-input$lngtclass <- input$lngtclass+0.5
+
+input$lngtclass[input$lngtcode != "5"] <- round(input$lngtclass[input$lngtcode != "5"])
+input$lngtclass[input$lngtcode != "5"] <- input$lngtclass[input$lngtcode != "5"]+0.5
+
 
 data(tsn)  # itis database of ALL species in the world
 input$scientific.name <- as.character(tsn$completename[match(input$speccode,tsn$tsn)])   # match scientific name onto species code
