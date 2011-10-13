@@ -32,6 +32,9 @@ input$lngtclass <- input$lngtclass+0.5
 
 data(length.weight)   # attach a list of parameters courtesy of IMARES and Marine Science Scotland.
 
+sv <- data.frame(scientific.name = 'Solea vulgaris',a=0.031696,b=2.603)
+length.weight <- rbind(length.weight,sv)
+
 # Match a and b parameters onto the correct species
 
 input$a <- length.weight$a[match(input$scientific.name,length.weight$scientific.name)]
