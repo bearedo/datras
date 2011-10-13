@@ -8,11 +8,13 @@
  
  #lfdat = merged.haddock;
  #lfdat <- merged.plaice;
+ #lfdat  <- merged.fish
  
  #what.species ='Pleuronectes platessa'
  #what.species = 'Melanogrammus aeglefinus'
+ #what.species = 'Solea solea'
  
- plus.group <- 10
+ plus.group <- plus.group
  
   nalk <- alk[alk$scientific.name==what.species,]
   nalk$age <- ifelse(!is.na(nalk$age) & nalk$age >= 10, plus.group, nalk$age)    # Make a plus group
