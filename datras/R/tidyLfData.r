@@ -21,8 +21,10 @@ input$hlnoatlngt <- input$hlnoatlngt*input$subfact   # Multiply by the subfactor
 input$lngtclass[input$lngtcode == "."] <- input$lngtclass[input$lngtcode == '.']/10
 input$lngtclass[input$lngtcode == "0"] <- input$lngtclass[input$lngtcode == "0"]/10
 
-input$lngtclass <- floor(input$lngtclass)
-input$lngtclass <- input$lngtclass+0.5
+
+input$lngtclass[input$lngtcode != "5"] <- round(input$lngtclass[input$lngtcode != "5"])
+input$lngtclass[input$lngtcode != "5"] <- input$lngtclass[input$lngtcode != "5"]+0.5
+
 
 ## Estimate weight of each fish.
 
