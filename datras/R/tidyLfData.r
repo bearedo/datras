@@ -4,7 +4,20 @@ tidyLfData <- function(input = lfs)   {
 
 data(tsn)  # itis database of all species in the world
 
-input$scientific.name <- as.character(tsn$completename[match(input$speccode,tsn$tsn)])   # match scientific names using tsn
+data(DatrasSpeciesCodes)
+
+#Dived data into two species code types
+
+input.t <- input[input$speccodetype == 't',]
+input.w <- input[input$speccodetype == 'w',]
+
+input.t$scientific.name <- as.character(tsn$completename[match(input.t$speccode,tsn$tsn)])   # match scientific names using tsn
+input.w$scientific.name <- as.character(DatrasSpeciesCodes$scientific.name[match(input.w$speccode,DatrasSpeciesCodes$code_number)])   # match scientific names using tsn
+
+#Reunite the data
+
+input <- rbind(input.t,input.w)
+
 
 input <- input[!duplicated(input),]                  #  remove any duplicates
 input <- input[input$speccode != -9,]                #  remove missing species codes
