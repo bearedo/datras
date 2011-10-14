@@ -31,6 +31,12 @@ alk$sweeplngt <- as.numeric(as.character(alk$sweeplngt))
 alk$haulno <- as.numeric(as.character(alk$haulno)) 
  alk$stno <- as.numeric(as.character(alk$stno)) 
  alk$year <- as.numeric(as.character(alk$year))
+ 
+alk$speccodetype <-as.character(alk$speccodetype)
+alk$speccodetype <-ifelse(alk$speccodetype=='TRUE','t',alk$speccodetype)
+
+ 
+ 
  alk$speccode <-as.numeric(as.character(alk$speccode)) 
  alk$areatype <- as.character(alk$areatype) 
  alk$areacode <- as.character(alk$areacode)
