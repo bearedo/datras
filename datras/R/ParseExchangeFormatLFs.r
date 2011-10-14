@@ -38,7 +38,11 @@ lf$sweeplngt <- as.numeric(as.character(lf$sweeplngt))
 lf$haulno <- as.numeric(as.character(lf$haulno))
 lf$stno <- as.character(lf$stno)
 lf$year <- as.numeric(as.character(lf$year))
+lf$speccodetype <-as.character(lf$speccodetype)
+lf$speccodetype <-ifelse(lf$speccodetype=='TRUE','t',lf$speccodetype)
+
 lf$speccode <-as.numeric(as.character(lf$speccode))
+
 lf$specval <-as.numeric(as.character(lf$specval))
 lf$totalno <-as.numeric(as.character(lf$totalno))
 lf$catidentifier <-as.numeric(as.character(lf$catidentifier))
