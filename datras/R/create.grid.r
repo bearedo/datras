@@ -1,9 +1,9 @@
-create.grid <- function(lon.range, lat.range, lon.n, lat.n, lon.obs, lat.obs)
+create.grid <- function(lon.range, lat.range, lon.n, lat.n, lon.obs, lat.obs,gridnames=c("shootlong","shootlat"))
 {
     # finds the northernmost and southmost points within bands of width 2*d.lon 
-    d.lon=1*2
+    d.lon=1*1
     # finds the westmost and eastmost points within bands of width 2*d.lat
-    d.lat=0.2*2
+    d.lat=0.2*1
     lonnie=seq(lon.range[1], lon.range[2], length=lon.n)
     lattie=seq(lat.range[1], lat.range[2], length=lat.n)
     grid=expand.grid(lon=lonnie,lat=lattie)
@@ -18,6 +18,6 @@ create.grid <- function(lon.range, lat.range, lon.n, lat.n, lon.obs, lat.obs)
         ok.lon[grid$lat==i & grid$lon>=lim[1] & grid$lon<=lim[2]]=TRUE
     }
     grid=data.frame(grid,ok.lon,ok.lat)
-    names(grid)[1:2]=c("shootlong","shootlat")
+    names(grid)[1:2]=gridnames
     list(grid=grid, lonnie=lonnie, lattie=lattie)
 }
