@@ -8,6 +8,9 @@ data(DatrasSpeciesCodes)
 
 #Dived data into two species code types
 
+input$speccodetype <- tolower(input$speccodetype)  #make certain they are all lowercase
+
+
 input.t <- input[input$speccodetype == 't',]
 input.w <- input[input$speccodetype == 'w',]
 
