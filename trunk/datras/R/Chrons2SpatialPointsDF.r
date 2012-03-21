@@ -1,6 +1,7 @@
 
 ### Create a SpatialPointsDataFrame from chrons (see package: sp)
 
+#
 Chrons2SpatialPointsDF <- function(data=chrons) {
 coords  <- coordinates(chrons[c("shootlong","shootlat")])
 #-Coords can be turned into spatial points and if you add a data.frame to it, to a SpatialPoints dataframe
