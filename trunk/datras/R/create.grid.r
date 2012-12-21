@@ -1,3 +1,5 @@
+ #Hello world
+
 create.grid <- function(lon.range, lat.range, lon.n, lat.n, lon.obs, lat.obs,gridnames=c("shootlong","shootlat"))
 {
     # finds the northernmost and southmost points within bands of width 2*d.lon 
