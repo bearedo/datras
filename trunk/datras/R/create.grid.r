@@ -1,4 +1,4 @@
- #Hello world
+ #Hello greetings from penang
 
 create.grid <- function(lon.range, lat.range, lon.n, lat.n, lon.obs, lat.obs,gridnames=c("shootlong","shootlat"))
 {
